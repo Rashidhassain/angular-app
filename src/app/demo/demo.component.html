@@ -1,0 +1,62 @@
+<!-- 
+
+<div>
+    @if(statusCases === 'active'){
+<p>Active</p>
+    }
+    @else if (statusCases === 'deactive') {
+        <p>De Active</p>
+    }
+    @else if(statusCases === 'pending') {
+        <p>Pending</p>
+    }
+    @else {
+        <p>Please Select</p>
+    }
+</div>
+
+<select [(ngModel)]="statusCases" class="form-control mt-3" name="statusCases">
+    <option value="">Select Status</option>
+<option value="active">Active</option>
+<option value="deactive">De Active</option>
+<option value="pending">Pending</option>
+</select> -->
+
+
+<!-- <ul>
+    @for(item of cityArray; track $index){
+<li>{{item?.name}}</li>
+    }
+</ul>
+<select>
+    @for(item of cityArray; track $index){
+        <option>{{item?.name}}</option>
+            }
+
+</select> -->
+
+<table class="table  container">
+    <thead>
+        <tr>
+            <th scope="col">SL No</th>
+            <th scope="col">State</th>
+            <th scope="col">City</th>
+            <th scope="col">Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(item of cityArray; track $index){
+        <tr>
+
+
+            <th>{{$index+1}}</th>
+            <td>{{item?.state}}</td>
+            <td>{{item?.name}}</td>
+
+            <td [ngClass]="{ 'text-success': item?.Active, 'text-danger': !item?.Active }">{{ item?.Active ? 'Yes' : 'No' }}</td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
